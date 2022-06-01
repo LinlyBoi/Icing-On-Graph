@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class RecipeTree
 
 {
@@ -61,5 +63,20 @@ public class RecipeTree
         {
             root.printNode();
         }
+    }
+
+    public Stack<RecipeNode> sortTopologically(RecipeNode currentNode) {
+        Stack<RecipeNode> recipeStack = new Stack<>();
+
+        if(currentNode.getChildren() == null) {
+            recipeStack.push(currentNode);
+            return recipeStack;
+        } else {
+            for (RecipeNode childNode : currentNode.children) {
+                recipeStack.push(currentNode);
+                sortTopologically(childNode);
+            }
+        }
+        return recipeStack;
     }
 }
