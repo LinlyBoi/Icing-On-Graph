@@ -24,15 +24,18 @@ public class RecipeTree
     }
     public void DFS(RecipeNode node, String value)
     {
+        //Base case where we stop recursion
         if(node == null)
         {
-            System.out.println("Node not found");
+            System.out.println("Node not found, going back up");
             return;
         }
+        //Case where its actually found !!!!
         if(node.getIngredient().equals(value))
         {
             System.out.println(node.getIngredient() + " " + node.getPortion());
         }
+        //Depth first search we take first child then we take the first child in the first child then we take the first child in the first child in the first child
         for(RecipeNode child : node.getChildren())
         {
             DFS(child, value);
