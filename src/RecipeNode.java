@@ -30,11 +30,15 @@ public class RecipeNode {
     public void setParent(RecipeNode parent) {
         this.parent = parent;
     }
+    public RecipeNode getParent() {
+        return parent;
+    }
     //Children
     public void addChild(RecipeNode child) {
         if (children == null) {
             children = new ArrayList<RecipeNode>();
         }
+        child.setParent(this);
         children.add(child);
     }
     public ArrayList<RecipeNode> getChildren() {
