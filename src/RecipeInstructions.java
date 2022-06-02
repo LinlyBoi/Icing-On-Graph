@@ -12,16 +12,17 @@ public class RecipeInstructions
 
         ArrayList<RecipeNode> ingredients = new ArrayList<>();
         RecipeTree fullInstructions = new RecipeTree();
+        Scanner userInput = new Scanner(System.in);
 
         do
         {
             System.out.println("Enter instruction:  ");
-            Scanner userInput = new Scanner(System.in);
             userInstruction = userInput.nextLine();
 
-            RecipeCreation(userInstruction);
+            RecipeCreation(userInstruction,fullInstructions);
+            fullInstructions.printTree();
 
-        } while (userInstruction.equalsIgnoreCase("done"));
+        } while(!userInstruction.equalsIgnoreCase("done"));
     }
 
     //Magical Regex
@@ -32,24 +33,11 @@ public class RecipeInstructions
     }
 
     // This creates an action + children
-    public static void RecipeCreation(String instructionIn)
+    public static void RecipeCreation(String instructionIn, RecipeTree fullInstructions)
     {
-        //New tree who dis
-        RecipeTree fullInstructions = new RecipeTree();
-        //Stinky Scanner please remove or something idk
-        //Maybe make the method take a string in or somethiong :D
-        // Scanner input = new Scanner(System.in); <-- Commented remove for testing
-        String userInput;
         //Need to not hardcode verbs maybe a global variable for it? etc etc
         String[] verbs = {"add", "mix", "stir", "wait", "bake", "heat", "sift", "boil", "melt", "fry", "cool",
                           "remove", "eat", "cut"};
-        //init this shit
-        int currentNumber = 0;
-        String currentIngredient = null;
-        //Useless sout lol <deleted dw lmao>
-//        userInput = input.nextLine();
-        //this was simulating user input for the tests below
-        // userInput = "mix 3 eggs and  2 milk"; <-- Commented remove for testing
         //this is where it gets juicy
         //FIRST WE FIND A VERB FOR THE ACTION
         for (String verb : verbs)
@@ -68,7 +56,6 @@ public class RecipeInstructions
                 //we add the thing to the tree (this also needs to be checked for WHERE it gets added)
                 fullInstructions.addNode((RecipeNode) null, newAction);
             }
-            fullInstructions.printTree();
         }
 
     }
@@ -105,7 +92,6 @@ public class RecipeInstructions
     @Test
     void testRecipeCreation()
     {
-        RecipeCreation("disNotRealOnlyToAvoidErrorTrustDuud");
     }
     @Test
     void testconstruct_children()
