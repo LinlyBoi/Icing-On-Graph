@@ -20,10 +20,11 @@ public class RecipeInstructions
             userInstruction = userInput.nextLine();
 
             RecipeCreation(userInstruction,fullInstructions);
-            fullInstructions.printTree();
-            System.out.println(fullInstructions.sortTopology());
-
         } while(!userInstruction.equalsIgnoreCase("done"));
+
+
+        System.out.println(fullInstructions.sortTopology());
+        System.out.println("Thank you for using recipe constructor.");
     }
 
     //Magical Regex

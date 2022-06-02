@@ -118,6 +118,10 @@ public class RecipeTree
         Stack<RecipeNode> stack = new Stack<RecipeNode>();
         stack.push(root);
         sortTopology(root, stack);
+
+        for(RecipeNode node : stack) {
+            System.out.println(node);
+        }
         return stack;
     }
 

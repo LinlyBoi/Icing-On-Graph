@@ -58,6 +58,10 @@ public class RecipeNode {
     }
     @Override
     public String toString() {
-        return "RecipeNode [ingredient=" + ingredient + ", portion=" + portion + "]";
+        if(portion != 0) {
+            return "[Ingredient: " + ingredient + ", portion = " + portion + " units]";
+        } else {
+            return "[Ingredient: " + ingredient + "]";
+        }
     }
 }
