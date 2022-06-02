@@ -90,7 +90,7 @@ public class RecipeInstructions
     }
 
     // This creates an action + children
-    public static void RecipeCreation()
+    public static void RecipeCreation(String instructionIn)
     {
         //New tree who dis
         RecipeTree fullInstructions = new RecipeTree();
@@ -99,7 +99,8 @@ public class RecipeInstructions
         Scanner input = new Scanner(System.in);
         String userInput;
         //Need to not hardcode verbs maybe a global variable for it? etc etc
-        String[] verbs = {"add", "mix"};
+        String[] verbs = {"add", "mix", "stir", "wait", "bake", "heat", "sift", "boil", "melt", "fry", "cool",
+                          "remove", "eat", "cut"};
         //init this shit
         int currentNumber = 0;
         String currentIngredient = null;
@@ -163,7 +164,7 @@ public class RecipeInstructions
     @Test
     void testRecipeCreation()
     {
-        RecipeCreation();
+        RecipeCreation("disNotRealOnlyToAvoidErrorTrustDuud");
     }
     @Test
     void testconstruct_children()
