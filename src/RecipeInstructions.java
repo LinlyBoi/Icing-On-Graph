@@ -21,6 +21,7 @@ public class RecipeInstructions
 
             RecipeCreation(userInstruction,fullInstructions);
             fullInstructions.printTree();
+            System.out.println(fullInstructions.sortTopology());
 
         } while(!userInstruction.equalsIgnoreCase("done"));
     }
