@@ -130,5 +130,37 @@ public class RecipeTree
         }
     }
 
+//    public void actionAdd(RecipeNode root,RecipeNode actionNchild) {
+//        if(root == null) {
+//            this.root = actionNchild;
+//        } else {
+//            for(RecipeNode node : root.getChildren()) {
+//                if(node.getPortion() != 0 || !actionNchild.getIngredient().equals(node.getIngredient())) {
+//                    actionAdd(node,actionNchild);
+//                } else if(node.getPortion() == 0 && actionNchild.getIngredient().equals(node.getIngredient())) {
+//                    addNode(node, actionNchild);
+//                }
+//            }
+//        }
+//    }
+    public void actionAdd(RecipeNode root,RecipeNode actionNchild) {
+        if(root == null) {
+            this.root = actionNchild;
+        } else {
+            for(RecipeNode node : root.getChildren()) {
+                if(node.getPortion() == 0 && node.getChildren() != null)
+                    actionAdd(node,actionNchild);
+                else
+                    addNode(node,actionNchild);
+
+
+                }
+            }
+        }
+        public void actionAdd(RecipeNode actionNchild)
+        {
+            actionAdd(root, actionNchild);
+        }
+
 
 }

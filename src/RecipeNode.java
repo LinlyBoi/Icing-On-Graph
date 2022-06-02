@@ -11,6 +11,10 @@ public class RecipeNode {
         this.ingredient = ingredient;
         this.portion = portion;
     }
+    public RecipeNode(String name)
+    {
+        this.ingredient = name;
+    }
 
     public void setIngredient(String ingredient) {
         this.ingredient = ingredient;
