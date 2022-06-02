@@ -130,5 +130,19 @@ public class RecipeTree
         }
     }
 
+    public void actionAdd(RecipeNode actionNchild) {
+        if(root == null) {
+            root = actionNchild;
+        } else {
+            for(RecipeNode node : root.children) {
+                if(node.getPortion() != 0 || !actionNchild.getIngredient().equals(node.getIngredient())) {
+                    actionAdd(actionNchild);
+                } else if(node.getPortion() == 0 && actionNchild.getIngredient().equals(node.getIngredient())) {
+                    actionNchild.parent = node.parent;
+                    node.parent = actionNchild;
+                }
+            }
+        }
+    }
 
 }

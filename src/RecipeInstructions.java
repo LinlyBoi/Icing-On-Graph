@@ -54,7 +54,7 @@ public class RecipeInstructions
                 String[] words = split[1].split(" ");
                 construct_children(newAction, words);
                 //we add the thing to the tree (this also needs to be checked for WHERE it gets added)
-                fullInstructions.addNode((RecipeNode) null, newAction);
+                fullInstructions.actionAdd(newAction);
             }
         }
 
